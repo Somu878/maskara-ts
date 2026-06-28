@@ -1,0 +1,22 @@
+{
+  "name": "mascara",
+  "version": "0.1.0",
+  "description": "High performance local PII detection and masking SDK powered by Rust",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "napi": {
+    "name": "mascara",
+    "package": {
+      "name": "mascara"
+    }
+  },
+  "scripts": {
+    "build": "napi build --platform --release && tsc",
+    "build:debug": "napi build --platform && tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "@napi-rs/cli": "^2.18.0",
+    "typescript": "^5.0.0"
+  }
+}
