@@ -3,3 +3,7 @@ dist/
 target/
 *.node
 .DS_Store
+aarch64-apple-darwin/
+npm/
+scripts/
+.dockerignore

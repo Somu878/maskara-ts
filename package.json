@@ -1,19 +1,47 @@
 {
-  "name": "mascara",
+  "name": "maskara",
   "version": "0.1.0",
   "description": "High performance local PII detection and masking SDK powered by Rust",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "index.js",
+    "index.d.ts",
+    "README.md",
+    "LICENSE"
+  ],
   "napi": {
-    "name": "mascara",
+    "name": "maskara",
     "package": {
-      "name": "mascara"
+      "name": "maskara"
+    },
+    "triples": {
+      "defaults": false,
+      "additional": [
+        "aarch64-apple-darwin",
+        "x86_64-apple-darwin",
+        "x86_64-unknown-linux-gnu",
+        "aarch64-unknown-linux-gnu"
+      ]
     }
+  },
+  "optionalDependencies": {
+    "mascara-darwin-arm64": "0.1.0",
+    "mascara-darwin-x64": "0.1.0",
+    "mascara-linux-x64-gnu": "0.1.0",
+    "mascara-linux-arm64-gnu": "0.1.0"
+  },
+  "engines": {
+    "node": ">=14"
   },
   "scripts": {
     "build": "napi build --platform --release && tsc",
-    "build:debug": "napi build --platform && tsc",
-    "prepublishOnly": "npm run build"
+    "build:darwin-x64": "napi build --platform --release --target x86_64-apple-darwin",
+    "build:linux": "bash scripts/build-linux.sh",
+    "build:all": "npm run build && npm run build:darwin-x64 && npm run build:linux",
+    "create-npm-dirs": "napi create-npm-dir -c package.json -t .",
+    "prepublishOnly": "npm run create-npm-dirs && npm run build:all && node scripts/copy-binaries.js && npm run verify-packages"
   },
   "devDependencies": {
     "@napi-rs/cli": "^2.18.0",

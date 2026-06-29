@@ -1,8 +1,8 @@
-# Mascara (TypeScript/Node.js SDK)
+# Maskara (TypeScript/Node.js SDK)
 
 > High-performance local PII detection, masking, and redaction SDK for TypeScript/JavaScript, powered by a native Rust core.
 
-Mascara delivers enterprise-grade PII detection and redaction with **zero external dependencies, zero weight downloads, and zero runtime setup**. The model weights are quantized and compressed inside the compiled native library binary, running entirely offline and securely in under 25ms.
+Maskara delivers enterprise-grade PII detection and redaction with **zero external dependencies, zero weight downloads, and zero runtime setup**. The model weights are quantized and compressed inside the compiled native library binary, running entirely offline and securely in under 25ms.
 
 ---
 
@@ -18,7 +18,7 @@ Mascara delivers enterprise-grade PII detection and redaction with **zero extern
 ## Installation
 
 ```bash
-npm install mascara
+npm install maskara
 ```
 
 ---
@@ -26,7 +26,7 @@ npm install mascara
 ## Usage
 
 ```typescript
-import { detect, mask, redact } from 'mascara';
+import { detect, mask, redact } from 'maskara';
 
 const text = "Hi, my phone is +91-9876543210 and my Aadhaar number is 1234-5678-9012.";
 
